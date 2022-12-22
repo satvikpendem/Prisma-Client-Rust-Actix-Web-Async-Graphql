@@ -1,4 +1,4 @@
-# Prisma Rust Client GraphQL
+# Prisma-Client-Rust, Actix-Web, Async-Graphql
 
 Example Actix Web server with Prisma (ORM) and GraphQL
 

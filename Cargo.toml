@@ -1,0 +1,17 @@
+[package]
+name = "prisma-client-rust-actix-web-async-graphql"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[workspace]
+members = ["prisma-cli"]
+
+[dependencies]
+actix-web = "4"
+async-graphql = "5.0.4"
+async-graphql-actix-web = "5.0.4"
+prisma-client-rust = { git = "https://github.com/Brendonovich/prisma-client-rust", default-features = false, features = [
+    "postgresql",
+] }
+serde = { version = "1", features = ["derive"] }

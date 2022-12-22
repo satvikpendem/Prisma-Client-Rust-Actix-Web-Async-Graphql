@@ -9,10 +9,10 @@ pub struct UserQuery;
 
 #[Object]
 impl UserQuery {
-    async fn get_users(&self, ctx: &Context<'_>) -> Result<Vec<User>> {
-        let db = ctx.data::<PrismaClient>().unwrap();
+    async fn get_users(&self, context: &Context<'_>) -> Result<Vec<User>> {
+        let database = context.data::<PrismaClient>().unwrap();
 
-        Ok(db
+        Ok(database
             .user()
             .find_many(vec![])
             .exec()
@@ -22,10 +22,10 @@ impl UserQuery {
             .collect())
     }
 
-    async fn get_user(&self, ctx: &Context<'_>, id: String) -> Result<Option<User>> {
-        let db = ctx.data::<PrismaClient>().unwrap();
+    async fn get_user(&self, context: &Context<'_>, id: String) -> Result<Option<User>> {
+        let database = context.data::<PrismaClient>().unwrap();
 
-        Ok(db
+        Ok(database
             .user()
             .find_unique(user::id::equals(id))
             .exec()

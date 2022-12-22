@@ -20,7 +20,7 @@ sudo -u postgres psql -c 'create database prisma_rust_client_example;'
 
 ```prisma
 ...
-datasource db {
+datasource database {
   provider = "postgresql" // If you decide to use a different database, change the `provider` here
   url      = "postgresql://postgres:postgres@localhost:5432/prisma_rust_client_example"
 }

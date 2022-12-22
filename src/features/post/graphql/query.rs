@@ -9,10 +9,10 @@ pub struct PostQuery;
 
 #[Object]
 impl PostQuery {
-    async fn get_posts(&self, ctx: &Context<'_>) -> Result<Vec<Post>> {
-        let db = ctx.data::<PrismaClient>().unwrap();
+    async fn get_posts(&self, context: &Context<'_>) -> Result<Vec<Post>> {
+        let database = context.data::<PrismaClient>().unwrap();
 
-        Ok(db
+        Ok(database
             .post()
             .find_many(vec![])
             .exec()

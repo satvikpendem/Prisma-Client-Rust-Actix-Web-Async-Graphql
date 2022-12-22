@@ -15,10 +15,10 @@ pub struct Post {
 
 #[ComplexObject]
 impl Post {
-    pub async fn user(&self, ctx: &Context<'_>) -> Result<Option<Box<User>>> {
-        let db = ctx.data::<PrismaClient>().unwrap();
+    pub async fn user(&self, context: &Context<'_>) -> Result<Option<Box<User>>> {
+        let database = context.data::<PrismaClient>().unwrap();
 
-        Ok(db
+        Ok(database
             .user()
             .find_unique(user::id::equals(self.user_id.clone()))
             .exec()

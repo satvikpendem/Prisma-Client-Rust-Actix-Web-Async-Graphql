@@ -14,10 +14,10 @@ pub struct User {
 
 #[ComplexObject]
 impl User {
-    pub async fn posts(&self, ctx: &Context<'_>) -> Result<Vec<Post>> {
-        let db = ctx.data::<PrismaClient>().unwrap();
+    pub async fn posts(&self, context: &Context<'_>) -> Result<Vec<Post>> {
+        let database = context.data::<PrismaClient>().unwrap();
 
-        Ok(db
+        Ok(database
             .post()
             .find_many(vec![post::user_id::equals(self.id.clone())])
             .exec()
